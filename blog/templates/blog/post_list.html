@@ -1,28 +1,26 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>My first Blog</title>
-    </head>
-    <body>
-        <header>
-            <h1a href="/">My First Blog</h1>
-        </header>
+{% extends 'blog/base.html' %}
+
+{% block content %}
         <h2>Hi there!</h2>
         <h1>I can´t believe it worked!!</h1>
         <p>Now I need information to add here!</p>
-        <h3>What could this blos be about?</h3>
+        <h3>What could this blog be about?</h3>
         <strong>Here are some ideas:</strong>
         <ul>
-            <li>Food that I like</li>
-            <li>Politics</li>
-            <li>Little Stories</li>
+            <li>My Niblits</li>
+            <li>My Niblits doing yoga</li>
+            <li>Little Stories about my Niblits</li>
         </ul>
-        {% for post in posts %}
-    <article>
-        <time>published: {{ post.published_date }}</time>
+        <main class="container">
+            <div class="row">
+                <div class="col">
+    {% for post in posts %}
+    <article class="post">
+        <time class="date">
+            {{ post.published_date }}
+        </time>
         <h2><a href="">{{ post.title }}</a></h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
-{% endfor %}       
-    </body>
-</html>
+    {% endfor %}
+{% endblock %}
